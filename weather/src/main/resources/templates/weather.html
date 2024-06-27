@@ -13,19 +13,22 @@
         <div class="row justify-content-center ">
             <div class="col-md-7 text-center m-5">
                 <form th:action="@{/welcome}" class="d-flex" role="search" style="height:50px" method="POST" >
-                    <input  name="cityName" class="form-control me-2 hover-effect" type="search" placeholder="Search Your Location" aria-label="Search" id="input-box" style="border:2px solid black">
+                    <input  name="cityName" class="form-control me-2 hover-effect" type="search"
+                     placeholder="Search Your Location" aria-label="Search" id="input-box" style="border:2px solid black">
                     <button class="btn btn-outline-success" type="submit" id="searchBtn">Search</button>
                   </form>
                 </div>
             </div>
     </div>
+
+    <div class="mx-auto text-light text-center mt-1 mb-5" ><h1 th:text="${cityName}"></h1></div>
       
 
             <!-- weather section -->
         <div class="container-fluid">
                <div class="row justify-content-center">
                     <div class="col-md-7 text-center">
-                        <img th:src="@{image/pngwing.com.png}" alt="not-found" style="width:40%" id="weather-img">
+                        <img th:src="@{image/pngwing.com.png}" alt="not-found" style="width:30%" id="weather-img">
                      </div>
                 </div>
             <!-- value section -->
@@ -48,11 +51,11 @@
                     <div class="row">
                        <div class="col-md-6">
                             <i class="fa-solid fa-droplet fs-2" style="color: #f1f4f8;"></i>
-                            <span style="color:white; font-size:2rem;" id="humidity">Humidity</span>
+                            <span style="color:white; font-size:2rem;" id="humidity" ><span  th:text="${weatherResponse.getCurrent().getHumidity()}" ></span> Humidity</span>
                         </div>
                     <div class="col-md-6 text-end">
                         <i class="fa-solid fa-wind fs-2" style="color: #f4f5f6;"></i>
-                        <span style="color:white; font-size: 2rem;" id="wind-speed">0Km/h Wind<br>Speed</span>
+                        <span style="color:white; font-size: 2rem;" id="wind-speed"><span th:text="${weatherResponse.getCurrent().getWindSpeed()}"></span>Km/h Wind<br>Speed</span>
                 </div>
                 
             </div>

@@ -26,6 +26,8 @@ public class WeatherController {
     public String welcome(@RequestParam("cityName") String cityName,Model model){
          WeatherResponse weatherResponse= weatherService.getWeather(cityName);
        model.addAttribute("weatherResponse",weatherResponse );
+       String city=cityName.toUpperCase();
+       model.addAttribute("cityName", city);
         return "weather";
     }
     
